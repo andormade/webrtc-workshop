@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WebRTC Relay</title>
+		<link rel="stylesheet" href="/css/style.css" />
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>
+					<h2>Receiver</h2>
+
+					Paste the offer from unicaster here:
+					<textarea id="textareaReceiverOffer"></textarea> Copy this answer to
+					the unicaster:
+					<textarea id="textareaReceiverAnswer" disabled></textarea>
+				</td>
+				<td>
+					<h2>
+						Unicaster
+					</h2>
+					Copy the offer to the receiver:
+					<textarea id="textareaUnicasterOffer" disabled></textarea> Paste the
+					answer here from the receiver:
+					<textarea id="textareaUnicasterAnswer"></textarea>
+				</td>
+			</tr>
+		</table>
+
+		<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+		<script type="module">
+			import { createReceiver } from '/js/receiver.mjs';
+			import { createUnicaster } from '/js/unicaster.mjs';
+
+			(async function() {
+				createReceiver(textareaReceiverOffer, textareaReceiverAnswer, function(
+					stream
+				) {
+					createUnicaster(
+						textareaUnicasterOffer,
+						textareaUnicasterAnswer,
+						stream
+					);
+				});
+			})();
+		</script>
+	</body>
+</html>
