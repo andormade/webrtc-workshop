@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>WebRTC Receiver</title>
+		<link rel='stylesheet' href='/css/style.css'/>
 	</head>
 	<body>
 		<h2>WebRTC Receiver</h2>
@@ -12,7 +13,7 @@
 		<video id="video" autoplay></video>
 		<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 		<script type="module">
-			import { createReceiver } from '../receiver.mjs';
+			import { createReceiver } from '/js/receiver.mjs';
 			createReceiver(textareaOffer, textareaAnswer, function(stream) {
 				video.srcObject = stream;
 			});

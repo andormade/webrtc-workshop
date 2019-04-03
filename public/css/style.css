@@ -1,0 +1,9 @@
+textarea {
+	display: block;
+	height: 100px;
+	width: 100%;
+}
+
+video {
+	width: 100%;
+}
