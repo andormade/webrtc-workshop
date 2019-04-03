@@ -12,7 +12,7 @@
 		<video id="video" autoplay></video>
 		<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 		<script type="module">
-			import createReceiver from '../receiver.mjs';
+			import { createReceiver } from '../receiver.mjs';
 			createReceiver(textareaOffer, textareaAnswer, function(stream) {
 				video.srcObject = stream;
 			});

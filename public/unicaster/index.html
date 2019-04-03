@@ -13,7 +13,7 @@
 		<textarea id="textareaAnswer"></textarea>
 		<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 		<script type="module">
-			import createUnicaster from '../unicaster.mjs';
+			import { createUnicaster } from '../unicaster.mjs';
 
 			(async function() {
 				const stream = await navigator.mediaDevices.getUserMedia({
