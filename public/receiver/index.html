@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WebRTC Receiver</title>
+	</head>
+	<body>
+		<h2>WebRTC Receiver</h2>
+		Paste the offer from the unicaster here:
+		<textarea id="textareaOffer"></textarea>
+		Copy the answer to the unicaster:
+		<textarea id="textareaAnswer" disabled></textarea>
+		<video id="video" autoplay></video>
+		<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+		<script type="module">
+			import createReceiver from '../receiver.mjs';
+			createReceiver(textareaOffer, textareaAnswer, function(stream) {
+				video.srcObject = stream;
+			});
+		</script>
+	</body>
+</html>

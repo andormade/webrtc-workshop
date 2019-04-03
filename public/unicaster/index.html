@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WebRTC Unicaster</title>
+	</head>
+
+	<body>
+		<h2>WebRTC Unicaster</h2>
+
+		Copy this offer to a receiver:
+		<textarea id="textareaOffer" disabled></textarea> Paste the answer from the
+		receiver:
+		<textarea id="textareaAnswer"></textarea>
+		<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+		<script type="module">
+			import createUnicaster from '../unicaster.mjs';
+
+			(async function() {
+				const stream = await navigator.mediaDevices.getUserMedia({
+					video: true,
+					audio: true,
+				});
+
+				await createUnicaster(textareaOffer, textareaAnswer, stream);
+			})();
+		</script>
+	</body>
+</html>
