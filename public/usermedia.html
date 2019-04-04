@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>getUserMeda example</title>
+	</head>
+	<body>
+		<video id="video" autoplay></video>
+		<script>
+			(async function() {
+				const stream = await navigator.mediaDevices.getUserMedia({
+					video: true,
+					audio: false,
+				});
+
+				video.srcObject = stream;
+			})();
+		</script>
+	</body>
+</html>
